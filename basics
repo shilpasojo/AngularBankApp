@@ -1,0 +1,56 @@
+            ANGULAR - Front End Technology
+       ----------------------------------------
+
+                  Basic Commands
+            -------------------------
+
+1. To create a project - ng new projectName  - routing(y) (E.g., ng new demo / ng new bankApp) - ProjectCreated
+
+2. To run Angular project - ng serve / ng serve --open             (INSIDE PROJECT , demo/bankApp)
+
+3 To generate component (in NEW TERMINAL) - ng g c componentName   (INSIDE PROJECT , demo/bankApp)
+
+            
+            Basic Building Blocks of Angular
+            --------------------------------
+
+1. MODULE - To import third party ( ByDefault => rootModule - AppModule)
+
+2. COMPONENT - To create HTML, CSS, TypeScript Files ( ByDefault => rootComponent - AppComponent)
+
+
+                DATA BINDING
+              ----------------
+    
+    ((InCase of LoginPage, user html pageil enter cheyyunna details (acno & pswd), ts fileil kittanam))
+    ((Enkil maathrame, acno & pswd validate cheyyan pattoo))
+    
+    To SHARE DATA inside a component
+    
+    1.A) ONE WAY DIRECTION -> Data sharing only in one DIRECTION
+         (ts-> html) OR (html->ts)
+                
+          ts= component
+          html = view
+
+    ==> TS -> HTML [COMPONENT TO VIEW] (ts->html)
+    1.a. STRING INTERPOLATION (ts->html) ====> {{}}
+         =>> {{expression}} in html page . This expression should be defined in ts file
+    1.b. PROPERTY BINDING (ts->html)     ====> []
+        => Classil define cheyyunna oru propertye (Eg, account), html pageile tagsinte attributes(Eg, placeholder) aayi bind cheyyam
+         =>> [attribute]="propertyName" 
+         =>> [HtmlTagAttribute]="ClassilDefineCheydhaPropertyName"
+         =>> [placeholder]="account" . This, account should be defined in ts file
+
+    ==> HTML -> TS [VIEW TO COMPONENT] (html->ts)
+            (EVENTS Examples -> ButtonClick, KeyPress, MouseMovement)
+            (click, change)
+    1.a. EVENT BINDING ====> () ==> without Argument
+          =>> (eventName)="functionName()"          // click
+    1.b. EVENT BINDING using $event as argumaent
+            [Nammal oru event bind cheyyumbol, aa event mathram bind cheydhal pora, To get all details associated with that event]
+            [To get the values, Eg, user textBoxil entyer cheyyunna values]
+          =>> (eventName)="functionName($event)"    // change
+    1.c. EVENT BINDING using Template Referencing Variable => denoted by # 
+
+
