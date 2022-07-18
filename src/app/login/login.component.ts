@@ -113,8 +113,6 @@ export class LoginComponent implements OnInit { // Basic Structure of CLASS insi
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   login(){ // TWO WAY BINDING Using ngModel
 
-    // console.log(a.value);
-    // console.log(p.value);
     
     var acno = this.acno // User textBoxil enter cheyyunna accountNumber 
     var pswd = this.pswd // User textBoxil enter cheyyunna Password      

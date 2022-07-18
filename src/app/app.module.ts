@@ -24,4 +24,4 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 export class AppModule { }
 
-// IMPORTING THIRD PARTY LIBRARIES
+// IMPORTING THIRD PARTY LIBRARIES --> in app.module.ts

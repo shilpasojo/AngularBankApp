@@ -54,8 +54,11 @@
     1.c. EVENT BINDING using Template Referencing Variable => denoted by #
           ===>  #variableName 
 ----------------------------------------------------------------------------------------------------------
-     2.) TWO WAY BINDING -> Data sharing in both directions
-      Using ngModel - import FormsModule in app.module.ts
+     2.) TWO WAY BINDING -> Data sharing in both directions -> Using ngModel
+
+     ngModel use cheyyanamenkil, FormsModule import cheyyanam.
+      
+       import FormsModule in app.module.ts
 
       SYNTAX for using ngModel (ngModel is given in HTML Page)
       [(ngModel)]="propertyName" 
@@ -63,6 +66,7 @@
 
 -----------------------------------------------------------------------------------------------------------
 ANGULAR ROUTING - To set path for components - given as object
+---------------
 
 {path:value,component:className}   in appRoutingMOdule.ts file
 
