@@ -18,7 +18,7 @@ import { Component, OnInit } from '@angular/core'; // IMPORT SECTION
 // CLASS SECTION
 export class LoginComponent implements OnInit { // Basic Structure of CLASS inside a Component
   
-  // a.) 3RD EXECUTION => PROPERTIES / VARIABLES / DATABASE CREATION
+  // A.) 3RD EXECUTION => PROPERTIES / VARIABLES / DATABASE CREATION
   // Classinte inside ulla variablesine, .this keyword vechu, aa classinte insideil ulla, all functionsinum access cheyyam
 
   aim = "Your Perefect Banking Partner"      // DATA BINDING, STRING INTERPOLATION (ts->html)
@@ -37,37 +37,37 @@ export class LoginComponent implements OnInit { // Basic Structure of CLASS insi
     1002:{acno:1002,username:"Vyom",password:1002,balance:6000}
   }
 //---------------------------------------------------------------------------------------------------------------
-  // b.) 1ST EXECUTE => CONSTRUCTOR - It is related to Class (Class is a component of Angular)
+  // B.) 1ST EXECUTE => CONSTRUCTOR - It is related to Class (Class is a component of Angular)
   // CONSTRUCTOR is a method, of the ((class to instantiate objects))
   // Classile constructor method, oru object create avumbol, automatically call aavum
   constructor() { } 
 //---------------------------------------------------------------------------------------------------------------
 
-  // c.) 2ND EXECUTE => NGONINIT - It is related to Angular  - LifeCycleHook of Angular 
+  // C.) 2ND EXECUTE => NGONINIT - It is related to Angular  - LifeCycleHook of Angular 
   // oru component undavumbol, enthoke nadakkanam ennu paranjhu kodukkunna place. Eg, Testing. Whether the component is ok / not
   ngOnInit(): void {
   }
 //---------------------------------------------------------------------------------------------------------------
 
-  // d.) 4TH EXECUTE => USER DEFINED FUNCTIONS 
+  // D.) 4TH EXECUTE => USER DEFINED FUNCTIONS 
 
   // FIRST FUNCTION -> EVENT BINDING $event
     // Oru Classinte ullil function ezhuthumbol, function keyword venda.
-    acnoChange(event:any){
+    // acnoChange(event:any){
       // console.log(event); // Will get the entire event, while user entering an acountNumber in the textBox
       // event.target.value = user enter cheydhitulla accountNumber
-      this.acno = event.target.value  // event.target.value => User textBoxil enter cheyyunna accountNumber, i.e, = 1000
-      console.log(this.acno);  // 1000
-  }
+      // this.acno = event.target.value  // event.target.value => User textBoxil enter cheyyunna accountNumber, i.e, = 1000
+      // console.log(this.acno);  // 1000
+  // }
 
     // SECOND FUNCTION -> EVENT BINDING $event
       // Oru Classinte ullil function ezhuthumbol, function keyword venda.
-    pswdChange(event:any){
-      this.pswd = event.target.value // event.target.value => User textBoxil enter cheyyunna password = 1000
-      console.log(this.pswd);  // 1000
-    }
+    // pswdChange(event:any){
+      // this.pswd = event.target.value // event.target.value => User textBoxil enter cheyyunna password = 1000
+      // console.log(this.pswd);  // 1000
+    // }
 
-    //THIRD FUNCTION -> login  => EVENT BINDIND => (click)="login()" in html
+    //THIRD FUNCTION -> login  => EVENT BINDIND  => (click)="login()" in html
      // Oru Classinte ullil function ezhuthumbol, function keyword venda.
   // login(){
     // alert("Login Button Clicked")
@@ -87,9 +87,10 @@ export class LoginComponent implements OnInit { // Basic Structure of CLASS insi
   //     alert("User does not Exists")
   //   }
   // }
-
-
-  // login(a:any,p:any){ // login function using two arguments
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// SECOND METHOD (EVENT BINDING using Template Referencing Variable)
+  
+// login(a:any,p:any){ // login function using two arguments
 
     // console.log(a.value);
     // console.log(p.value);
@@ -109,8 +110,8 @@ export class LoginComponent implements OnInit { // Basic Structure of CLASS insi
   //     alert("User does not Exists")
   //   }
   // }
-
-  login(){ // login function using two arguments
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  login(){ // TWO WAY BINDING Using ngModel
 
     // console.log(a.value);
     // console.log(p.value);
@@ -130,7 +131,7 @@ export class LoginComponent implements OnInit { // Basic Structure of CLASS insi
       alert("User does not Exists")
     }
   }
-
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 } // End of Class, inside an Angular Component

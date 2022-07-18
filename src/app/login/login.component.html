@@ -22,14 +22,15 @@
                           <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-user"></i></span>
                           </div>
-                          <!--DATA BINDING, PROPERTY BINDING : [placeholder]="account" instead of givig like, placeholder="Enter acc number"  -->
-                          <!--DATA BINDING, EVENT BINDING : (change)="acnoChange($event)" -->
+                          <!-- ACCOUNT NUMBER -->
+                          <!--1.) DATA BINDING, PROPERTY BINDING : [placeholder]="account" instead of givig like, placeholder="Enter acc number"  -->
+                          <!--    DATA BINDING, EVENT BINDING : $event : (change)="acnoChange($event)" -->
                           <!-- <input (change)="acnoChange($event)" type="text" class="form-control" [placeholder]="account" id="login_accno" required> -->
                           
+                          <!--2.) templateReferencingVariable -->
                           <!-- <input #acno type="text" class="form-control" [placeholder]="account" id="login_accno" required> -->
-                            <!-- templateReferencingVariable -->
 
-                         <!-- TWO WAY BINDING - ngModel -->
+                         <!--3.) TWO WAY BINDING - ngModel     name="acno" must -->
                          <input [(ngModel)]="acno" name="acno" type="text" class="form-control" [placeholder]="account" id="login_accno" required>
 
                          
@@ -39,21 +40,27 @@
                           <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-key"></i></span>
                           </div>
-                          <!-- EVENT BINDING : (change)="pswdChange($event)" -->
+                          <!-- PASSWORD -->
+                          <!--1.) EVENT BINDING : $event : (change)="pswdChange($event)" -->
                           <!-- <input (change)="pswdChange($event)" type="password" class="form-control" [placeholder]="password" id="login_password" required> -->
                           
+                          <!--2.) templateReferencingVariable : #pswd -->
                           <!-- <input #pswd type="password" class="form-control" [placeholder]="password" id="login_password" required> -->
-                            <!-- templateReferencingVariable -->
 
-                        <!-- TWO WAY BINDING - ngModel -->
-                        <input [(ngModel)]="pswd" name="pswd" type="password" class="form-control" [placeholder]="password" id="login_password" required>
+                          <!--3.) TWO WAY BINDING - ngModel    name="pswd" must-->
+                          <input [(ngModel)]="pswd" name="pswd" type="password" class="form-control" [placeholder]="password" id="login_password" required>
 
                         </div>
                         <div class="form-group">
-                          <!-- EVENT BINDING : (click)="login()" -->
+                          <!-- LOGIN -->
+                          <!--1.) EVENT BINDING : (click)="login()" -->
+                          <!-- <input type="submit" (click)="login()" value="Login" class="btn float-right login_btn " style="width:50%" > -->
+
+                          <!--2.) templateReferencingVariables as arguments -->
                           <!-- <input type="submit" (click)="login(acno,pswd)" value="Login" class="btn float-right login_btn " style="width:50%" > -->
-                                            <!-- templateReferencingVariables as arguments -->
-                        <input type="submit" (click)="login()" value="Login" class="btn float-right login_btn " style="width:50%" >
+                        
+                          <!--3.) TWO WAY BINDING, ngModel -->
+                          <input type="submit" (click)="login()" value="Login" class="btn float-right login_btn " style="width:50%" >
 
                         </div>
                   </form>
