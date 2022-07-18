@@ -89,13 +89,34 @@ export class LoginComponent implements OnInit { // Basic Structure of CLASS insi
   // }
 
 
-  login(a:any,p:any){ // two arguments
+  // login(a:any,p:any){ // login function using two arguments
 
     // console.log(a.value);
     // console.log(p.value);
     
-    var acno = a.value // User textBoxil enter cheyyunna accountNumber 
-    var pswd = p.value // User textBoxil enter cheyyunna Password      
+    // var acno = a.value // User textBoxil enter cheyyunna accountNumber 
+    // var pswd = p.value // User textBoxil enter cheyyunna Password      
+
+    // let userDetails = this.userDetails // just to avoid using this.userDetails
+
+    // if(acno in userDetails){ // User textBoxil enter cheyyunna accountNumber, userDetailsil undo?
+      // if(pswd == userDetails[acno]["password"]){ //Here, acno = userEnteredAccNmbr // User textBoxil enter cheyyunna Password == userDetails[acno]["password"]
+  //       alert("Login Success")
+  //     }else{
+  //       alert("Incorrect Password")
+  //     }
+  //   }else{
+  //     alert("User does not Exists")
+  //   }
+  // }
+
+  login(){ // login function using two arguments
+
+    // console.log(a.value);
+    // console.log(p.value);
+    
+    var acno = this.acno // User textBoxil enter cheyyunna accountNumber 
+    var pswd = this.pswd // User textBoxil enter cheyyunna Password      
 
     let userDetails = this.userDetails // just to avoid using this.userDetails
 
@@ -109,6 +130,7 @@ export class LoginComponent implements OnInit { // Basic Structure of CLASS insi
       alert("User does not Exists")
     }
   }
+
 
 
 } // End of Class, inside an Angular Component
