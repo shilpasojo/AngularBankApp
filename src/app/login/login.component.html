@@ -24,18 +24,25 @@
                           </div>
                           <!--DATA BINDING, PROPERTY BINDING : [placeholder]="account" instead of givig like, placeholder="Enter acc number"  -->
                           <!--DATA BINDING, EVENT BINDING : (change)="acnoChange($event)" -->
-                          <input (change)="acnoChange($event)" type="text" class="form-control" [placeholder]="account" id="login_accno" required>
+                          <!-- <input (change)="acnoChange($event)" type="text" class="form-control" [placeholder]="account" id="login_accno" required> -->
+                          
+                          <input #acno type="text" class="form-control" [placeholder]="account" id="login_accno" required>
+                            <!-- templateReferencingVariable -->
                         </div>
                         <div class="input-group form-group">
                           <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-key"></i></span>
                           </div>
                           <!-- EVENT BINDING : (change)="pswdChange($event)" -->
-                          <input (change)="pswdChange($event)" type="password" class="form-control" [placeholder]="password" id="login_password" required>
+                          <!-- <input (change)="pswdChange($event)" type="password" class="form-control" [placeholder]="password" id="login_password" required> -->
+                          
+                          <input #pswd type="password" class="form-control" [placeholder]="password" id="login_password" required>
+                            <!-- templateReferencingVariable -->
                         </div>
                         <div class="form-group">
                           <!-- EVENT BINDING : (click)="login()" -->
-                          <input type="submit" (click)="login()" value="Login" class="btn float-right login_btn " style="width:50%" >
+                          <input type="submit" (click)="login(acno,pswd)" value="Login" class="btn float-right login_btn " style="width:50%" >
+                                            <!-- templateReferencingVariables as arguments -->
                         </div>
                   </form>
               </div>

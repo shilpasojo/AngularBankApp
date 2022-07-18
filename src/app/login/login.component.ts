@@ -69,11 +69,33 @@ export class LoginComponent implements OnInit { // Basic Structure of CLASS insi
 
     //THIRD FUNCTION -> login  => EVENT BINDIND => (click)="login()" in html
      // Oru Classinte ullil function ezhuthumbol, function keyword venda.
-  login(){
-    alert("Login Button Clicked")
+  // login(){
+    // alert("Login Button Clicked")
 
-    var acno = this.acno // User textBoxil enter cheyyunna accountNumber // just to avoid using this.userDetails
-    var pswd = this.pswd // User textBoxil enter cheyyunna Password      // just to avoid using this.userDetails
+    // var acno = this.acno // User textBoxil enter cheyyunna accountNumber // just to avoid using this.userDetails
+    // var pswd = this.pswd // User textBoxil enter cheyyunna Password      // just to avoid using this.userDetails
+
+    // let userDetails = this.userDetails // just to avoid using this.userDetails
+
+    // if(acno in userDetails){ // User textBoxil enter cheyyunna accountNumber, userDetailsil undo?
+      // if(pswd == userDetails[acno]["password"]){ //Here, acno = userEnteredAccNmbr // User textBoxil enter cheyyunna Password == userDetails[acno]["password"]
+  //       alert("Login Success")
+  //     }else{
+  //       alert("Incorrect Password")
+  //     }
+  //   }else{
+  //     alert("User does not Exists")
+  //   }
+  // }
+
+
+  login(a:any,p:any){ // two arguments
+
+    // console.log(a.value);
+    // console.log(p.value);
+    
+    var acno = a.value // User textBoxil enter cheyyunna accountNumber 
+    var pswd = p.value // User textBoxil enter cheyyunna Password      
 
     let userDetails = this.userDetails // just to avoid using this.userDetails
 
@@ -87,5 +109,6 @@ export class LoginComponent implements OnInit { // Basic Structure of CLASS insi
       alert("User does not Exists")
     }
   }
+
 
 } // End of Class, inside an Angular Component

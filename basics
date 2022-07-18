@@ -51,6 +51,7 @@
             [Nammal oru event bind cheyyumbol, aa event mathram bind cheydhal pora, To get all details associated with that event]
             [To get the values, Eg, user textBoxil entyer cheyyunna values]
           =>> (eventName)="functionName($event)"    // change
-    1.c. EVENT BINDING using Template Referencing Variable => denoted by # 
+    1.c. EVENT BINDING using Template Referencing Variable => denoted by #
+          ===>  #variableName 
 
 
