@@ -44,11 +44,18 @@ export class LoginComponent implements OnInit { // Basic Structure of CLASS insi
   // constructor() { } 
 
   // DEPENDENCY INJECTION should given as arguments of constructor method
-     constructor( private router:Router) { } 
+     constructor( private router:Router) { }
+     // router is the object/variable/property of LoginComponentClass 
+        // router ==>(should be private, i.e., router will access in this ts file only)
+     // Router is the ClassName
+        // navigateByUrl() is a method inside RouterClass
+
+    // So, routeril, RouterClassinte Object undu.
+  
   // Extra oru import statement automatically topil varum 
   // private access specifier
   // router is a variable in this class, i.e., LoginComponent
-  // This used after LoginSuccess
+  // This is used after LoginSuccess
 
 //---------------------------------------------------------------------------------------------------------------
 

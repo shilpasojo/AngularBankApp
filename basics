@@ -67,25 +67,69 @@
       => propertyName should be defined in ts File
 
 -----------------------------------------------------------------------------------------------------------
-ANGULAR ROUTING - To set path for components - given as object
+ANGULAR ROUTING - To set path for components . Path=>To identify pages
 ---------------
 
-{path:value,component:className}   in appRoutingMOdule.ts file
-use <router-outlet></router-outlet> in root component
+1.) {path:value,component:className}   in appRoutingMOdule.ts file     
+2.) Give <router-outlet></router-outlet> in root component(appComponent)
+
+      In JavaScript => windows.location
+      In TypeScript => navigateByUrl()
+
+
+Here, for navigate/reDirecting to another page, a function called, navigateByUrl() is necessary.
+This functions is defined inside the class Router.
+navigateByUrl ===> (in) ====> Router Class
+
+So, Router classil ulla, navigateByUrl() functione, namukku LoginComponent enna classil kittanam.
+Enkil maathrame, eni LoginComponentClass work cheyyu.
+
+So, RouterClass & LoginComponentClass are Dependent Classes.
 
 -----------------------------------------------------------------------------------------------------------
 
-DEPENDENCY INJECTION in constructor(){}  
+DEPENDENCY INJECTION in constructor(){}  // To share data b/w two classes
 --------------------
-To share data between dependent classes
-private access specifier
+A method to share data between Dependent Classes (Eg. RouterClass & LoginComponentClass)
+Dependent aayittulla Classinte instance, edhu Classinakathekkano aavashyam, adhinakathu kodukkam.
 
-  constructor( private router:Router) { } // Extra oru import statement topil varum // private access specifier
+RouterClassinte Object venam. Enkil maathrame, RouterClassinte methodsne access cheyyan pattoo..
+RouterClassinte Object ne eduthu, LoginComponentClassinte objectlottu vekkunnu
+
+Access Specifier
+  1.) Public  - accessible for all files, in that folder, where a property/variable is declared
+  2.) Private - variable only accessible in that file only, where it is declared
+  3.) Protected
+
+ //DEPENDENCY INJECTION STEP
+  constructor( private router:Router) { }  // Inside LoginComponentClass
+  
+  // Extra oru import statement topil varum // private access specifier
   
   this.router.navigateByUrl("dashboard") //DEPENDENCY INJECTION//To redirect to dashboardPage after loginSuccess
 
------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+
+Instead of href in a tag, we can use, routerLink in html page
+<a routerLink="register">Register</a>
+
+-----------------------------------------------------------------------------------------------------------
 ANGULAR SERVICES
+----------------
+
+To hold Reduntant Data(Eg, dataBase : userDetails)
 To use reduntant things in different files (Eg, database)
+dataBase userDetails ne, orupaadu componentsil, use cheyyanu
+
+ng g s serviceName
+
+bankApp => src => app => newFolder(services) => cmd => ng g s serviceName
+
+Again, dependencyInjection use cheydhu, access cheyyam
+
+-----------------------------------------------------------------------------------------------------------
+FLOW
+-----
+ComponentCreation -> SettingPath for that component inside app-routing.module.ts file
 
 

@@ -11,10 +11,10 @@
       <div class="d-flex justify-content-center h-100">
           <div class="card">
               <div class="card-header">
-                  <h3 class="text-center">Sign In</h3>
+                  <h3 class="text-center">Sign Up</h3>
               </div>
               <div class="card-body">
-                  <form onsubmit="event.preventDefault();bank.authenticate()">
+                  <form>
                     
                     <!-- USER NAME -->
                     <div class="input-group form-group">
@@ -22,7 +22,7 @@
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
                         <!--3.) TWO WAY BINDING - ngModel    name="uname" must-->
-                        <input [(ngModel)]="uname" name="uname" type="text" class="form-control" placeholder="Enter User Name" id="uname" required>
+                        <input [(ngModel)]="uname" name="uname" type="text" class="form-control" placeholder="Enter User Name" id="login_user" required>
                     </div>
                     
                     <!-- ACCOUNT NUMBER -->
@@ -40,7 +40,7 @@
                               <span class="input-group-text"><i class="fas fa-key"></i></span>
                           </div>
                           <!--3.) TWO WAY BINDING - ngModel    name="pswd" must-->
-                          <input [(ngModel)]="pswd" name="pswd" type="password" class="form-control" placeholder="Enter Password" id="login_password" required>
+                          <input [(ngModel)]="pswd" name="pswd" type="password" class="form-control" placeholder="Enter your Password" id="login_password" required>
                     </div>
                        
                     <!-- REGISTER-->
@@ -52,7 +52,7 @@
               </div>
               
               <!-- routerLink is for reDirecting -->
-              <!-- routerLink="" (redirecting to login page)   -->
+              <!-- routerLink="" (Empty string, redirecting to login page)   -->
               <!-- "" is the pathName for login set in app-routing.module.ts -->
               <p style="color:white;align-items:baseline;">Existing user? <a routerLink="">Log In</a></p>
           </div>

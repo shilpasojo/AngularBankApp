@@ -3,8 +3,14 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService { // data is the name of service // Thatswhy, DataService is the className
+export class DataService { // data is the name of service, we generated // Thatswhy, DataService is the className
+  
   // SERVICES - To use reduntant things in different files
+
+  // Orupaadu componentsinu dataBase, userDetails aavashyamaanu
+
+  // To hold the dataBase, userDetails
+
 
   //Service For DataBase ONLY // Service created to share database ONLY
   // Database in login.ts   is needed in   register.ts
