@@ -10,6 +10,8 @@
 
 3 To generate component (in NEW TERMINAL) - ng g c componentName   (INSIDE PROJECT , demo/bankApp)
 
+4 To generate services - ng g s serviceName (src->app>servicesFolder->cmd->ng g s serviceName)
+
             
             Basic Building Blocks of Angular
             --------------------------------
@@ -69,6 +71,21 @@ ANGULAR ROUTING - To set path for components - given as object
 ---------------
 
 {path:value,component:className}   in appRoutingMOdule.ts file
+use <router-outlet></router-outlet> in root component
 
+-----------------------------------------------------------------------------------------------------------
+
+DEPENDENCY INJECTION in constructor(){}  
+--------------------
+To share data between dependent classes
+private access specifier
+
+  constructor( private router:Router) { } // Extra oru import statement topil varum // private access specifier
+  
+  this.router.navigateByUrl("dashboard") //DEPENDENCY INJECTION//To redirect to dashboardPage after loginSuccess
+
+-----------------------------------------------------------------------------------------------------------------------------
+ANGULAR SERVICES
+To use reduntant things in different files (Eg, database)
 
 

@@ -6,11 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({ // @ : DECORATOR : Replacing data with another data
   declarations: [
     AppComponent, // ClassName in app.component.ts
-    LoginComponent, DashboardComponent // ClassName in login.component.ts
+    LoginComponent, DashboardComponent, RegisterComponent // ClassName in login.component.ts
   ],
   imports: [
     BrowserModule,

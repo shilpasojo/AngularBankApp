@@ -8,6 +8,7 @@
 
 
 import { Component, OnInit } from '@angular/core'; // IMPORT SECTION
+import { Router } from '@angular/router';
 
 @Component({ // @ : DECORATOR SECTION
   selector: 'app-login', // SELECTOR of LoginComponent
@@ -21,9 +22,9 @@ export class LoginComponent implements OnInit { // Basic Structure of CLASS insi
   // A.) 3RD EXECUTION => PROPERTIES / VARIABLES / DATABASE CREATION
   // Classinte inside ulla variablesine, .this keyword vechu, aa classinte insideil ulla, all functionsinum access cheyyam
 
-  aim = "Your Perefect Banking Partner"      // DATA BINDING, STRING INTERPOLATION (ts->html)
+  aim = "Your Perefect Banking Partner"      // DATA BINDING, STRING INTERPOLATION (ts->html) //public access speciier
 
-  account = "Enter your Account Number Here" // PROPERTY BINDING (ts->html)
+  account = "Enter your Account Number Here" // PROPERTY BINDING (ts->html) //public access speciier(we can access this variable anywhere)
   password = "Enter your Password Here"
 
   acno = "" // User textBoxil enter cheyyunna accountNumber, store cheyyanulla variable
@@ -40,11 +41,20 @@ export class LoginComponent implements OnInit { // Basic Structure of CLASS insi
   // B.) 1ST EXECUTE => CONSTRUCTOR - It is related to Class (Class is a component of Angular)
   // CONSTRUCTOR is a method, of the ((class to instantiate objects))
   // Classile constructor method, oru object create avumbol, automatically call aavum
-  constructor() { } 
+  // constructor() { } 
+
+  // DEPENDENCY INJECTION should given as arguments of constructor method
+     constructor( private router:Router) { } 
+  // Extra oru import statement automatically topil varum 
+  // private access specifier
+  // router is a variable in this class, i.e., LoginComponent
+  // This used after LoginSuccess
+
 //---------------------------------------------------------------------------------------------------------------
 
   // C.) 2ND EXECUTE => NGONINIT - It is related to Angular  - LifeCycleHook of Angular 
-  // oru component undavumbol, enthoke nadakkanam ennu paranjhu kodukkunna place. Eg, Testing. Whether the component is ok / not
+  // oru component undavumbol, enthoke nadakkanam ennu paranjhu kodukkunna place. 
+  // Eg, Testing. Whether the component is ok / not
   ngOnInit(): void {
   }
 //---------------------------------------------------------------------------------------------------------------
@@ -122,6 +132,7 @@ export class LoginComponent implements OnInit { // Basic Structure of CLASS insi
     if(acno in userDetails){ // User textBoxil enter cheyyunna accountNumber, userDetailsil undo?
       if(pswd == userDetails[acno]["password"]){ //Here, acno = userEnteredAccNmbr // User textBoxil enter cheyyunna Password == userDetails[acno]["password"]
         alert("Login Success")
+        this.router.navigateByUrl("dashboard")//DEPENDENCY INJECTION//To redirect to dashboardPage after loginSuccess
       }else{
         alert("Incorrect Password")
       }
