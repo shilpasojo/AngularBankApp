@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DataService { // data is the name of service, we generated // Thatswhy, DataService is the className
   
-  // SERVICES - To use reduntant things in different files
+  // SERVICES - To hold reduntant things that is used in different files
 
   // Orupaadu componentsinu dataBase, userDetails aavashyamaanu
 
