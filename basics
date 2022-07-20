@@ -71,7 +71,7 @@ ANGULAR ROUTING - To set path for components . Path=>To identify pages
 ---------------
 
 1.) {path:value,component:className}   in appRoutingMOdule.ts file     
-2.) Give <router-outlet></router-outlet> in root component(appComponent)
+2.) Give <router-outlet></router-outlet> in root component(appComponent) (IMPORTANT)
 
       In JavaScript => windows.location
       In TypeScript => navigateByUrl()
@@ -101,7 +101,7 @@ Access Specifier
   2.) Private - variable only accessible in that file only, where it is declared
   3.) Protected
 
- //DEPENDENCY INJECTION STEP
+ //DEPENDENCY INJECTION FORMAT : (In constructor section)
   constructor( private router:Router) { }  // Inside LoginComponentClass
   
   // Extra oru import statement topil varum // private access specifier
@@ -115,9 +115,9 @@ Instead of href in a tag, we can use, routerLink in html page
 
 -----------------------------------------------------------------------------------------------------------
 ANGULAR SERVICES
-----------------
+------------------
 
-To hold Reduntant Data(Eg, dataBase : userDetails)
+To hold Reduntant(Duplicate) Data(Eg, dataBase : userDetails)
 To use reduntant things in different files (Eg, database)
 dataBase userDetails ne, orupaadu componentsil, use cheyyanu
 

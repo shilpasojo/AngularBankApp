@@ -9,6 +9,7 @@
 
 import { Component, OnInit } from '@angular/core'; // IMPORT SECTION
 import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({ // @ : DECORATOR SECTION
   selector: 'app-login', // SELECTOR of LoginComponent
@@ -32,11 +33,11 @@ export class LoginComponent implements OnInit { // Basic Structure of CLASS insi
   // acno & pswd, classile variable aayadhu kondu, .this keyword vechu, functionsinte inside access cheyyam
 
   // CREATING DATABASE => bank
-  userDetails:any = {  // OBJECTS OF OBJECTS
-    1000:{acno:1000,username:"Neer",password:1000,balance:5000},   // KeyValue Pair // Key should be acno in case of bank
-    1001:{acno:1001,username:"Laisha",password:1001,balance:4000}, // Key should be unique(1000, 1001, 1002)
-    1002:{acno:1002,username:"Vyom",password:1002,balance:6000}
-  }
+  // userDetails:any = {  // OBJECTS OF OBJECTS
+    // 1000:{acno:1000,username:"Neer",password:1000,balance:5000},   // KeyValue Pair // Key should be acno in case of bank
+    // 1001:{acno:1001,username:"Laisha",password:1001,balance:4000}, // Key should be unique(1000, 1001, 1002)
+    // 1002:{acno:1002,username:"Vyom",password:1002,balance:6000}
+  // }
 //---------------------------------------------------------------------------------------------------------------
   // B.) 1ST EXECUTE => CONSTRUCTOR - It is related to Class (Class is a component of Angular)
   // CONSTRUCTOR is a method, of the ((class to instantiate objects))
@@ -44,7 +45,7 @@ export class LoginComponent implements OnInit { // Basic Structure of CLASS insi
   // constructor() { } 
 
   // DEPENDENCY INJECTION should given as arguments of constructor method
-     constructor( private router:Router) { }
+     constructor( private router:Router, private ds:DataService) { }
      // router is the object/variable/property of LoginComponentClass 
         // router ==>(should be private, i.e., router will access in this ts file only)
      // Router is the ClassName
@@ -128,26 +129,39 @@ export class LoginComponent implements OnInit { // Basic Structure of CLASS insi
   //   }
   // }
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  login(){ // TWO WAY BINDING Using ngModel
+  // THIRD METHOD (TWO WAY BINDING Using ngModel)
+   
+  // login(){ // TWO WAY BINDING Using ngModel
 
-    
-    var acno = this.acno // User textBoxil enter cheyyunna accountNumber 
-    var pswd = this.pswd // User textBoxil enter cheyyunna Password      
+    // var acno = this.acno // User textBoxil enter cheyyunna accountNumber 
+    // var pswd = this.pswd // User textBoxil enter cheyyunna Password      
 
-    let userDetails = this.userDetails // just to avoid using this.userDetails
+    // let userDetails = this.userDetails // just to avoid using this.userDetails
 
-    if(acno in userDetails){ // User textBoxil enter cheyyunna accountNumber, userDetailsil undo?
-      if(pswd == userDetails[acno]["password"]){ //Here, acno = userEnteredAccNmbr // User textBoxil enter cheyyunna Password == userDetails[acno]["password"]
+    // if(acno in userDetails){ // User textBoxil enter cheyyunna accountNumber, userDetailsil undo?
+      // if(pswd == userDetails[acno]["password"]){ //Here, acno = userEnteredAccNmbr // User textBoxil enter cheyyunna Password == userDetails[acno]["password"]
+        // alert("Login Success")
+        // this.router.navigateByUrl("dashboard")//DEPENDENCY INJECTION//To redirect to dashboardPage after loginSuccess
+      // }else{
+        // alert("Incorrect Password")
+  //     }
+  //   }else{
+  //     alert("User does not Exists")
+  //   }
+  // }
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   // login Function //DataService
+   login(){ 
+     var acno = this.acno
+     var pswd = this.pswd
+
+     const result = this.ds.login(acno,pswd) // result = true/false
+      if(result){ 
         alert("Login Success")
-        this.router.navigateByUrl("dashboard")//DEPENDENCY INJECTION//To redirect to dashboardPage after loginSuccess
-      }else{
-        alert("Incorrect Password")
-      }
-    }else{
-      alert("User does not Exists")
+        this.router.navigateByUrl("dashboard")
+      
     }
   }
-//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+//-------------------------------------------------------------------------------------------------------------
 
 } // End of Class, inside an Angular Component
