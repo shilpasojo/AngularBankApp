@@ -1,1 +1,157 @@
-<p style="color: white;">dashboard works!</p>
+
+<!-- DASH BOARD  -->
+
+<nav class="navbar navbar-light bg-dark " >
+    <a class="navbar-brand  " href="#" style="color:rgb(85, 98, 237);"><b>&#169; HAFC Bank Pvt.Ltd </b></a>
+    <span class="quote text-light">Giving you freedom...</span>
+    <!-- LOGOUT BUTTON -->
+    <button class="btn btn-warning" (click)="logOut()">LOG OUT</button>
+</nav>
+  
+<h2 style="color: white;">WELCOME {{user}}</h2> 
+<!-- STRING INTERPOLATION -> // LOGIN USERNAME : To get userName in Dashboard, when login is success -->
+
+<!-- DELETE BUTTON -->
+<button class="btn btn-danger" style="float: right; margin-right: 20px;" (click)="deleteParent()">DELETE</button>
+
+<a routerLink="/transaction">View Transaction History</a>
+
+<!-- SELECTOR OF delete-confirmation Component -->
+<!-- delete-confirmation is CHILD COMPONENT  -->
+<!-- dashboard is PARENT COMPONENT -->
+<!-- To get view of childComponent in parentComponent -->
+<app-delete-confirmation [item]="acno"></app-delete-confirmation> 
+<!-- PROPERTY BINDIND -->
+<!-- [childProperty]="parentProperty" -->
+<!-- item is a variable of childComponent -->
+<!-- acno is a variable of parentComponent -->
+
+
+<!-- DEPOSIT FORM -->
+  <div [ngClass]=" acno?'style1':'' " id="deposit" class="container col-md-12 mt-3">
+  <!-- [ngClass]=" acno?'style1':'' "  => delete button click cheydhal,ponam. On the basis of acno -->
+  <!-- style1 is defined in css page ; style1=opacity is 0px -->
+      <div class="d-flex justify-content-center h-100">
+          <div class="card">
+              <div class="card-header">
+                  <h3 class="text-center">DEPOSIT FORM</h3>
+              </div>
+              <div class="card-body">
+                  <!-- REACTIVE FORM -->
+                  <form [formGroup]="depositForm" (ngSubmit)="deposit()">
+                    
+                    <!-- ACCOUNT NUMBER -->
+                    <div class="input-group form-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                          </div>
+                          <!-- TWO WAY BINDING - ngModel/formControlName     name="acno" must -->
+                         <input formControlName="acno" name="acno" type="text" class="form-control" placeholder="Enter Account Number" id="login_accno" required>
+                    </div>
+                    <div *ngIf="this.depositForm.get('acno')?.touched && this.depositForm.get('acno')?.errors"  style="color: red;">
+                        INVALID ACCOUNT NUMBER
+                    </div>
+
+                    <!-- PASSWORD -->
+                    <div class="input-group form-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-key"></i></span>
+                          </div>
+                           <!-- TWO WAY BINDING - ngModel/formControlName    name="pswd" must -->
+                          <input formControlName="pswd" name="pswd" type="password" class="form-control" placeholder="Enter your Password" id="login_password" required>
+                    </div>
+                    <div *ngIf="this.depositForm.get('pswd')?.touched && this.depositForm.get('pswd')?.errors"  style="color: red;">
+                        INVALID PASSWORD
+                    </div>
+
+                    <!-- AMOUNT -->
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <!-- TWO WAY BINDING - ngModel/formControlName    name="uname" must-->
+                            <input formControlName="amount" name="amount" type="text" class="form-control" placeholder="Enter Amount" id="amount" required>
+                    </div>
+                    <div *ngIf="this.depositForm.get('amount')?.touched && this.depositForm.get('amount')?.errors"  style="color: red;">
+                        INVALID AMOUNT
+                    </div>
+
+                    <!-- DEPOSIT BUTTON-->
+                    <div class="form-group">
+                          <!--3.) TWO WAY BINDING, ngModel -->
+                          <!-- <input type="submit" (click)="register()" value="Register" class="btn float-right login_btn " style="width:50%" > -->
+                          <input type="submit"  value="DEPOSIT" class="btn float-right login_btn " style="width:50%" >
+                            <!-- ngSubmit -->
+                        </div>
+                  </form>
+              </div>
+            </div>
+      </div>
+  </div>
+
+  <!-- WITHDRAWAL FORM -->
+  <div [ngClass]=" acno?'style1':'' " id="with" class="container col-md-12 mt-5">
+      <!-- [ngClass]=" acno?'style1':'' "  => delete button click cheydhal,ponam. On the basis of acno -->
+      <!-- style1 is defined in css page ; style1=opacity is 0px -->
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">WITHDRAWAL FORM</h3>
+            </div>
+            <div class="card-body">
+                <!-- REACTIVE FORM -->
+                <form [formGroup]="withdrawForm" (ngSubmit)="withdraw()">
+                  
+                  <!-- ACCOUNT NUMBER -->
+                  <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <!--3.) TWO WAY BINDING - ngModel/formControlName     name="acno" must -->
+                       <input formControlName="acno1" name="acno1" type="text" class="form-control" placeholder="Enter Account Number" id="login_accno1" required>
+                  </div>
+                  <div *ngIf="this.withdrawForm.get('acno1')?.touched && this.withdrawForm.get('acno1')?.errors"  style="color: red;">
+                    INVALID ACCOUNT NUMBER
+                  </div>
+
+                  <!-- PASSWORD -->
+                  <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <!--3.) TWO WAY BINDING - ngModel/formControlName    name="pswd" must-->
+                        <input formControlName="pswd1" name="pswd1" type="password" class="form-control" placeholder="Enter your Password" id="login_password1" required>
+                  </div>
+                  <div *ngIf="this.withdrawForm.get('pswd1')?.touched && this.withdrawForm.get('pswd1')?.errors"  style="color: red;">
+                    INVALID PASSWORD
+                  </div>
+
+                  <!-- AMOUNT -->
+                  <div class="input-group form-group">
+                      <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                          </div>
+                          <!--3.) TWO WAY BINDING - ngModel/formControlName    name="uname" must-->
+                          <input formControlName="amount1" name="amount1" type="text" class="form-control" placeholder="Enter Amount" id="amount1" required>
+                  </div>
+                  <div *ngIf="this.withdrawForm.get('amount1')?.touched && this.withdrawForm.get('amount1')?.errors"  style="color: red;">
+                    INVALID AMOUNT
+                  </div>
+
+                  <!-- WITHDRAW BUTTON-->
+                  <div class="form-group">
+                        <!--3.) TWO WAY BINDING, ngModel -->
+                        <!-- <input type="submit" (click)="register()" value="Register" class="btn float-right login_btn " style="width:50%" > -->
+                        <input type="submit"  value="WITHDRAW" class="btn float-right login_btn " style="width:50%" >
+                          <!-- ngSubmit -->
+                      </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+
+

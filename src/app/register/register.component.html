@@ -11,10 +11,13 @@
       <div class="d-flex justify-content-center h-100">
           <div class="card">
               <div class="card-header">
-                  <h3 class="text-center">Sign Up</h3>
+                  <h3 class="text-center">SIGN UP</h3>
               </div>
               <div class="card-body">
-                  <form>
+
+                <!-- REACTIVE FORM -->
+                  <form [formGroup]="registerForm" (ngSubmit)="register()">
+                      <!-- PROPERTY BINDING == [formGroup]="registerForm" -->
                     
                     <!-- USER NAME -->
                     <div class="input-group form-group">
@@ -22,7 +25,13 @@
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
                         <!--3.) TWO WAY BINDING - ngModel    name="uname" must-->
-                        <input [(ngModel)]="uname" name="uname" type="text" class="form-control" placeholder="Enter User Name" id="login_user" required>
+                        <!-- <input [(ngModel)]="uname" name="uname" type="text" class="form-control" placeholder="Enter User Name" id="login_user" required> -->
+                        <input formControlName="uname" name="uname" type="text" class="form-control" placeholder="Enter User Name" id="login_user" required>
+                           <!-- TWO WAY BINDIND - ReactiveForm -->
+                    </div>
+                            
+                    <div *ngIf="this.registerForm.get('uname')?.touched && this.registerForm.get('uname')?.errors"  style="color: red;">
+                        INVALID USERNAME
                     </div>
                     
                     <!-- ACCOUNT NUMBER -->
@@ -31,8 +40,14 @@
                               <span class="input-group-text"><i class="fas fa-user"></i></span>
                           </div>
                           <!--3.) TWO WAY BINDING - ngModel     name="acno" must -->
-                         <input [(ngModel)]="acno" name="acno" type="text" class="form-control" placeholder="Enter Account Number" id="login_accno" required>
-                    </div>
+                         <!-- <input [(ngModel)]="acno" name="acno" type="text" class="form-control" placeholder="Enter Account Number" id="login_accno" required> -->
+                         <input formControlName="acno" name="acno" type="text" class="form-control" placeholder="Enter Account Number" id="login_accno" required>
+                            <!-- TWO WAY BINDIND - ReactiveForm -->
+                        </div>
+                        <div *ngIf="this.registerForm.get('acno')?.touched && this.registerForm.get('acno')?.errors"  style="color: red;">
+                            INVALID ACCOUNT NUMBER
+                        </div>
+        
                     
                     <!-- PASSWORD -->
                     <div class="input-group form-group">
@@ -40,14 +55,24 @@
                               <span class="input-group-text"><i class="fas fa-key"></i></span>
                           </div>
                           <!--3.) TWO WAY BINDING - ngModel    name="pswd" must-->
-                          <input [(ngModel)]="pswd" name="pswd" type="password" class="form-control" placeholder="Enter your Password" id="login_password" required>
+                          <!-- <input [(ngModel)]="pswd" name="pswd" type="password" class="form-control" placeholder="Enter your Password" id="login_password" required> -->
+                          <input formControlName="pswd" name="pswd" type="password" class="form-control" placeholder="Enter your Password" id="login_password" required>
+                            <!-- TWO WAY BINDIND - ReactiveForm -->
                     </div>
+                    <div *ngIf="this.registerForm.get('pswd')?.touched && this.registerForm.get('pswd')?.errors"  style="color: red;">
+                        INVALID PASSWORD
+                    </div>
+
                        
                     <!-- REGISTER-->
                     <div class="form-group">
                           <!--3.) TWO WAY BINDING, ngModel -->
-                          <input type="submit" (click)="register()" value="Register" class="btn float-right login_btn " style="width:50%" >
-                    </div>
+                          <!-- <input type="submit" (click)="register()" value="Register" class="btn float-right login_btn " style="width:50%" > -->
+                          <input type="submit"  value="Register" class="btn float-right login_btn " style="width:50%" >
+                            <!-- ngSubmit,, buttonType should be submit-->
+                            <!-- No need of (click)="register()" -->
+                            <!-- Can call like, <form (ngSubmit)="register()">  -->
+                        </div>
                   </form>
               </div>
               

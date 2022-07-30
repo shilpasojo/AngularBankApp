@@ -17,12 +17,15 @@
                   <h3 class="text-center">Sign In</h3>
               </div>
               <div class="card-body">
-                  <form>
+                 
+                <!-- REACTIVE FORM -->
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+                    <!-- ACCOUNT NUMBER -->
                         <div class="input-group form-group">
                           <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-user"></i></span>
                           </div>
-                          <!-- ACCOUNT NUMBER -->
                           <!--1.) DATA BINDING, PROPERTY BINDING : [placeholder]="account" instead of givig like, placeholder="Enter acc number"  -->
                           <!--    DATA BINDING, EVENT BINDING : $event : (change)="acnoChange($event)" -->
                           <!-- <input (change)="acnoChange($event)" type="text" class="form-control" [placeholder]="account" id="login_accno" required> -->
@@ -30,29 +33,33 @@
                           <!--2.) templateReferencingVariable -->
                           <!-- <input #acno type="text" class="form-control" [placeholder]="account" id="login_accno" required> -->
 
-                         <!--3.) TWO WAY BINDING - ngModel     name="acno" must -->
-                         <input [(ngModel)]="acno" name="acno" type="text" class="form-control" [placeholder]="account" id="login_accno" required>
-
-                         
+                         <!--3.) TWO WAY BINDING - ngModel/formControlName     name="acno" must -->
+                         <input formControlName="acno" name="acno" type="text" class="form-control" [placeholder]="account" id="login_accno" required>
                         </div>
-                        
+                        <div *ngIf="this.loginForm.get('acno')?.touched && this.loginForm.get('acno')?.errors"  style="color: red;">
+                            INVALID ACCOUNT NUMBER
+                        </div>
+
+                    <!-- PASSWORD -->
                         <div class="input-group form-group">
                           <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fas fa-key"></i></span>
                           </div>
-                          <!-- PASSWORD -->
                           <!--1.) EVENT BINDING : $event : (change)="pswdChange($event)" -->
                           <!-- <input (change)="pswdChange($event)" type="password" class="form-control" [placeholder]="password" id="login_password" required> -->
                           
                           <!--2.) templateReferencingVariable : #pswd -->
                           <!-- <input #pswd type="password" class="form-control" [placeholder]="password" id="login_password" required> -->
 
-                          <!--3.) TWO WAY BINDING - ngModel    name="pswd" must-->
-                          <input [(ngModel)]="pswd" name="pswd" type="password" class="form-control" [placeholder]="password" id="login_password" required>
-
+                          <!--3.) TWO WAY BINDING - ngModel/formControlName    name="pswd" must-->
+                          <input formControlName="pswd" name="pswd" type="password" class="form-control" [placeholder]="password" id="login_password" required>
                         </div>
+                        <div *ngIf="this.loginForm.get('pswd')?.touched && this.loginForm.get('pswd')?.errors"  style="color: red;">
+                            INVALID PASSWORD
+                        </div>
+                              
+                    <!-- LOGIN -->
                         <div class="form-group">
-                          <!-- LOGIN -->
                           <!--1.) EVENT BINDING : (click)="login()" -->
                           <!-- <input type="submit" (click)="login()" value="Login" class="btn float-right login_btn " style="width:50%" > -->
 
@@ -60,15 +67,16 @@
                           <!-- <input type="submit" (click)="login(acno,pswd)" value="Login" class="btn float-right login_btn " style="width:50%" > -->
                         
                           <!--3.) TWO WAY BINDING, ngModel -->
-                          <input type="submit" (click)="login()" value="Login" class="btn float-right login_btn " style="width:50%" >
-
+                          <!-- <input type="submit" (click)="login()" value="Login" class="btn float-right login_btn " style="width:50%" > -->
+                          <input type="submit"  value="Login" class="btn float-right login_btn " style="width:50%" >
+                            <!--ngSubmit  -->
                         </div>
-                  </form>
-              </div>
+                </form>
+            </div>
               <!-- routerLink="register" (redirecting to register page)   -->
               <!-- register is the pathName for register, set in app-routing.module.ts -->
               <p style="color:white;align-items:baseline;">Not a user? <a routerLink="register">Register</a></p>
-          </div>
-      </div>
-  </div>
+        </div>
+    </div>
+</div>
   

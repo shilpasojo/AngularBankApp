@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { TransactionComponent } from './transaction/transaction.component';
 
 const routes: Routes = [// Routing : To set paths from one page to another // {p,c}
   // 1.) login path : login html page // localhost:4200
@@ -12,7 +13,11 @@ const routes: Routes = [// Routing : To set paths from one page to another // {p
   {path:"dashboard",component:DashboardComponent},
   
   // 3.) register Path : register html page // localhost:4200/register
-  {path:"register",component:RegisterComponent}
+  {path:"register",component:RegisterComponent},
+
+  // 4.) transaction Path : transaction html page // localhost:4200/transaction
+  {path:"transaction",component:TransactionComponent},
+
 ]; 
 
 @NgModule({

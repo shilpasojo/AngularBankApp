@@ -132,4 +132,36 @@ FLOW
 -----
 ComponentCreation -> SettingPath for that component inside app-routing.module.ts file
 
+----------------------------------------------------------------------------------------------------------------
+ngSubmit - Nammude Form Entirely submit avan vendittulla event
+         - Even oru enter press cheydhal polum event nadakkum
+         - Form il aanu kodukkaro
+         - in register & login page
+-------------------------------------------------------------------------------------------------------------
+ANGULAR DIRECTIVES - To manipulate DOM(HTML PAGE) -> Will give in html page
+---------------------------------------------------
+1.) Component Directives
 
+2.) Structural Directives 
+    ->*ngFor
+    ->*ngIf
+
+3.) Attribute Directives
+    ->ngClass
+--------------------------------------------------------------------------------------------------------------------------
+ANGULAR FORM 
+------------
+1.) Template Driven Forms - first design html(difficult to validate)
+
+2.) Model Driven Forms - Designing in ts file before designing in html file (Easy validation possible)
+   2.a.) Reactive Forms - Need, FormGroup, Array, Control
+         - We can directly add validations
+         - Import ReactiveFormsModule to create forms
+-------------------------------------------------------------------------------------------------------------
+LOCAL STORAGE
+ -> setItem
+ ->getItem
+ ->removeItem
+ ---------------------------------------------------------------------------------------------------------------
+ PARENT - CHILD COMPONENTS COMMUNICATION
+ => Parent-Child => @Input
